@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+}
+
+#local-video{
+    width: 50vw;
+    height: 37.5vw;
+}
+
+.back_btn{
+    width: 5%;
+    height: 5%;
+    background-color: #ff4242;
+    border-radius: 9%;
+    border: 1px solid #444444;
+}
+
+.head{
+    display: flex;
+    justify-content: right;
+}
