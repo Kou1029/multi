@@ -114,13 +114,14 @@ const token = new SkyWayAuthToken({
         myId.textContent = "";
         buttonArea.replaceChildren();
         remoteMediaArea.replaceChildren();
+        room.onStreamUnpublished.add((e) => {
+            document.getElementById(`subscribe-button-${e.publication.id}`)?.remove();
+            document.getElementById(`media-${e.publication.id}`)?.remove();
+        });
         window.location.href="room_in.html";
     };
 
-    room.onStreamUnpublished.add((e) => {
-        document.getElementById(`subscribe-button-${e.publication.id}`)?.remove();
-        document.getElementById(`media-${e.publication.id}`)?.remove();
-    });
+    
 
     
 
