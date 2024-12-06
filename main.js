@@ -47,6 +47,7 @@ const token = new SkyWayAuthToken({
     const buttonArea = document.getElementById("button-area");
     const remoteMediaArea = document.getElementById("remote-media-area");
     const roomNameInput = document.getElementById("room-name");
+    const vd = document.getElementById("vd");
     // document.getElementById('room-name').value = "a";
 
     const myId = document.getElementById("my-id");
@@ -83,6 +84,7 @@ const token = new SkyWayAuthToken({
         subscribeButton.onclick = async () => {
             const { stream } = await me.subscribe(publication.id);
 
+
             let newMedia;
             switch (stream.track.kind) {
                 case "video":
@@ -99,8 +101,13 @@ const token = new SkyWayAuthToken({
                     return;
             }
             newMedia.id = `media-${publication.id}`;
+
+            let vid = document.createElement("div");
+            vid.id = `vd-${publication.id}`;
+            vd.appendChild(vid);
+
             stream.attach(newMedia);
-            remoteMediaArea.appendChild(newMedia);
+            vid.appendChild(newMedia);
         };
     };
 
@@ -113,7 +120,7 @@ const token = new SkyWayAuthToken({
 
         myId.textContent = "";
         buttonArea.replaceChildren();
-        remoteMediaArea.replaceChildren();
+        vd.replaceChildren();
         
         leave_room();
     };
@@ -121,6 +128,7 @@ const token = new SkyWayAuthToken({
     room.onStreamUnpublished.add((e) => {
         document.getElementById(`subscribe-button-${e.publication.id}`)?.remove();
         document.getElementById(`media-${e.publication.id}`)?.remove();
+        document.getElementById(`vd-${e.publication.id}`)?.remove();
     });
 
 })();

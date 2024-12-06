@@ -3,11 +3,14 @@ body{
     background-color: #575757;
 }
 
+video{
+    width: 30vw;
+    height: 22.5vw;
+}
+
 #local-video{
     position: relative;
     z-index: 2;
-    width: 50vw;
-    height: 37.5vw;
 }
 
 .back{
@@ -17,8 +20,8 @@ body{
 }
 
 .back_btn{
-    height: 3vw;
-    width: 5vw;
+    height: 50px;
+    width: 100px;
     font-size: 1.2rem;
     background-color: #ff4242;
     border-radius: 9%;
@@ -26,6 +29,20 @@ body{
     position: absolute;
     top: 1vw;
     right: 1vw;
+    transition: 0.5s;
+}
+
+.back_btn:hover{
+    height: 50px;
+    width: 100px;
+    font-size: 1.2rem;
+    background-color: #be1c1c;
+    border-radius: 9%;
+    border: 1px solid #444444;
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+    transition: 0.5s;
 }
 
 .video{
