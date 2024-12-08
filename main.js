@@ -44,6 +44,7 @@ const token = new SkyWayAuthToken({
 
 let isMikeEnabled = false;
 let camera_flg = true;
+let audio_flag = true;
 
 (async () => {
     const localVideo = document.getElementById("local-video");
@@ -57,6 +58,7 @@ let camera_flg = true;
     const joinButton = document.getElementById("join");
     const leaveButton = document.getElementById("leave");
     const cm = document.getElementById('camera');
+    const mute = document.getElementById('mute');
 
     const { audio, video } =
         await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream();
@@ -75,9 +77,11 @@ let camera_flg = true;
     myId.value = me.id;
 
     
-    await me.publish(video);
+    
 
-    let publication = await me.publish(audio);
+    let audio_publ = await me.publish(audio);
+    let camera_publ = await me.publish(video);
+
 
     const subscribeAndAttach = (publication) => {
         if (publication.publisher.id === me.id) return;
@@ -140,13 +144,22 @@ let camera_flg = true;
 
     cm.onclick = async () => {
         if(camera_flg == true){
-            await publication.disable();
+            await camera_publ.disable();
             camera_flg = false;
         }else{
-            await publication.enable();
+            await camera_publ.enable();
             camera_flg = true;
         }
-        
+    }
+
+    mute.onclick = async () => {
+        if(audio_flag == true){
+            await audio_publ.disable();
+            audio_flag = false;
+        }else{
+            await audio_publ.enable();
+            audio_flag = true;
+        }
     }
 
 
