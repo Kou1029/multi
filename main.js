@@ -42,6 +42,9 @@ const token = new SkyWayAuthToken({
     },
 }).encode("WycaGzghuM+aTaX/MPXfe9gP5ayoc9S47PjyDBm+SB4=");
 
+let isMikeEnabled = false;
+let camera_flg = true;
+
 (async () => {
     const localVideo = document.getElementById("local-video");
     const buttonArea = document.getElementById("button-area");
@@ -53,6 +56,7 @@ const token = new SkyWayAuthToken({
     const myId = document.getElementById("my-id");
     const joinButton = document.getElementById("join");
     const leaveButton = document.getElementById("leave");
+    const cm = document.getElementById('camera');
 
     const { audio, video } =
         await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream();
@@ -70,8 +74,10 @@ const token = new SkyWayAuthToken({
 
     myId.value = me.id;
 
-    await me.publish(audio);
+    
     await me.publish(video);
+
+    let publication = await me.publish(audio);
 
     const subscribeAndAttach = (publication) => {
         if (publication.publisher.id === me.id) return;
@@ -121,7 +127,7 @@ const token = new SkyWayAuthToken({
         myId.textContent = "";
         buttonArea.replaceChildren();
         vd.replaceChildren();
-        
+
         leave_room();
     };
 
@@ -131,8 +137,30 @@ const token = new SkyWayAuthToken({
         document.getElementById(`vd-${e.publication.id}`)?.remove();
     });
 
+
+    cm.onclick = async () => {
+        if(camera_flg == true){
+            await publication.disable();
+            camera_flg = false;
+        }else{
+            await publication.enable();
+            camera_flg = true;
+        }
+        
+    }
+
+
+
+
 })();
 
-function leave_room(){
-    window.location.href="room_in.html";
+
+
+
+
+
+
+
+function leave_room() {
+    window.location.href = "room_in.html";
 }

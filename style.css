@@ -6,6 +6,7 @@ body{
 video{
     width: 30vw;
     height: 22.5vw;
+    background-color: #000;
 }
 
 #local-video{
