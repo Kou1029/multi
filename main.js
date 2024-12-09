@@ -91,7 +91,7 @@ let audio_flag = true;
         async function video_hyouji() {
             // subscribeButton.onclick = async () => {
                 const { stream } = me.subscribe(publication.id);
-
+                console.log(stream);
                 let newMedia;
                 switch (stream.track.kind) {
                     case "video":
