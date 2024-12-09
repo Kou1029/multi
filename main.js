@@ -82,10 +82,10 @@ let audio_flag = true;
     const subscribeAndAttach = (publication) => {
         if (publication.publisher.id === me.id) return;
 
-        const subscribeButton = document.createElement("button");
-        subscribeButton.id = `subscribe-button-${publication.id}-${publication.contentType}`;  
-        subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
-        buttonArea.appendChild(subscribeButton);
+        // const subscribeButton = document.createElement("button");
+        // subscribeButton.id = `subscribe-button-${publication.id}-${publication.contentType}`;  
+        // subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
+        // buttonArea.appendChild(subscribeButton);
         video_hyouji();
 
         async function video_hyouji() {
