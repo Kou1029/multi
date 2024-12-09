@@ -86,7 +86,7 @@ let audio_flag = true;
         subscribeButton.id = `subscribe-button-${publication.id}-${publication.contentType}`;  
         subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
         buttonArea.appendChild(subscribeButton);
-        video_hyouji();
+        // video_hyouji();
 
         // async function video_hyouji() {
             subscribeButton.onclick = async () => {
