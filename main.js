@@ -114,7 +114,8 @@ let audio_flag = true;
 
             stream.attach(newMedia);
             vid.appendChild(newMedia);
-            document.getElementById(`subscribe-button-${publication.id}`).classList.add('video_class');
+            let id_dg = document.getElementById(`subscribe-button-${publication.id}`);
+            console.log(id_dg);
             document.getElementById(`subscribe-button-${publication.id}`).click();
         };
     };
