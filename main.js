@@ -63,7 +63,7 @@ let audio_flag = true;
         await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream();
     video.attach(localVideo);
     await localVideo.play();
-    
+
 
     if (roomNameInput.value === "") return;
 
@@ -75,7 +75,7 @@ let audio_flag = true;
     const me = await room.join();
 
     myId.value = me.id;
-    
+
     let audio_publ = await me.publish(audio);
     let camera_publ = await me.publish(video);
 
@@ -83,13 +83,15 @@ let audio_flag = true;
         if (publication.publisher.id === me.id) return;
 
         const subscribeButton = document.createElement("button");
-        subscribeButton.id = `subscribe-button-${publication.id}`;
+        subscribeButton.id = `subscribe-button-${publication.id}`;  
         subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
         buttonArea.appendChild(subscribeButton);
+        let id_dg = document.getElementById(`subscribe-button-${publication.id}`);
+        console.log(id_dg);
+        document.getElementById(`subscribe-button-${publication.id}`).click();
 
         subscribeButton.onclick = async () => {
             const { stream } = await me.subscribe(publication.id);
-
 
             let newMedia;
             switch (stream.track.kind) {
@@ -114,9 +116,7 @@ let audio_flag = true;
 
             stream.attach(newMedia);
             vid.appendChild(newMedia);
-            let id_dg = document.getElementById(`subscribe-button-${publication.id}`);
-            console.log(id_dg);
-            document.getElementById(`subscribe-button-${publication.id}`).click();
+
         };
     };
 
@@ -142,20 +142,20 @@ let audio_flag = true;
 
 
     cm.onclick = async () => {
-        if(camera_flg == true){
+        if (camera_flg == true) {
             await camera_publ.disable();
             camera_flg = false;
-        }else{
+        } else {
             await camera_publ.enable();
             camera_flg = true;
         }
     }
 
     mute.onclick = async () => {
-        if(audio_flag == true){
+        if (audio_flag == true) {
             await audio_publ.disable();
             audio_flag = false;
-        }else{
+        } else {
             await audio_publ.enable();
             audio_flag = true;
         }
