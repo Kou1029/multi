@@ -87,23 +87,24 @@ let audio_flag = true;
         subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
         buttonArea.appendChild(subscribeButton);
 
-            const { stream } = me.subscribe(publication.id);
+        // subscribeButton.onclick = async () => {
+        //     const { stream } = await me.subscribe(publication.id);
 
             let newMedia;
-            switch (stream.track.kind) {
-                case "video":
+            // switch (stream.track.kind) {
+            //     case "video":
                     newMedia = document.createElement("video");
                     newMedia.playsInline = true;
                     newMedia.autoplay = true;
-                    break;
-                case "audio":
+                //     break;
+                // case "audio":
                     newMedia = document.createElement("audio");
                     newMedia.controls = true;
                     newMedia.autoplay = true;
-                    break;
-                default:
-                    return;
-            }
+            //         break;
+            //     default:
+            //         return;
+            // }
             newMedia.id = `media-${publication.id}`;
 
             let vid = document.createElement("div");
@@ -113,7 +114,7 @@ let audio_flag = true;
             stream.attach(newMedia);
             vid.appendChild(newMedia);
 
-        
+        // };
     };
 
     room.publications.forEach(subscribeAndAttach);
