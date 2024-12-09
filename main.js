@@ -83,12 +83,12 @@ let audio_flag = true;
         if (publication.publisher.id === me.id) return;
 
         const subscribeButton = document.createElement("button");
-        subscribeButton.id = `subscribe-button-${publication.id}`;  
+        subscribeButton.id = `subscribe-button-${publication.id}-${publication.contentType}`;  
         subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
         buttonArea.appendChild(subscribeButton);
-        let id_dg = document.getElementById(`subscribe-button-${publication.id}`);
+        let id_dg = document.getElementById(`subscribe-button-${publication.id}-${publication.contentType}`);
         console.log(id_dg);
-        // document.getElementById(`subscribe-button-${publication.id}`).click();
+        document.getElementById(`subscribe-button-${publication.id}-${publication.contentType}`).click();
 
         subscribeButton.onclick = async () => {
             const { stream } = await me.subscribe(publication.id);
