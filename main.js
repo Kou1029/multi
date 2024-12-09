@@ -110,12 +110,11 @@ let audio_flag = true;
 
             let vid = document.createElement("div");
             vid.id = `vd-${publication.id}`;
-            vid.className = 'video_class';
             vd.appendChild(vid);
 
             stream.attach(newMedia);
             vid.appendChild(newMedia);
-            document.getElementById(`vd-${publication.id}`).click();
+            document.getElementById(`vd-${publication.id}`).classList.add('video_class');
         };
     };
 
