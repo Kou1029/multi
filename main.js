@@ -86,10 +86,10 @@ let audio_flag = true;
         subscribeButton.id = `subscribe-button-${publication.id}-${publication.contentType}`;  
         subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
         buttonArea.appendChild(subscribeButton);
-        // video_hyouji();
+        video_hyouji();
 
-        // async function video_hyouji() {
-            subscribeButton.onclick = async () => {
+        async function video_hyouji() {
+            // subscribeButton.onclick = async () => {
                 const { stream } = await me.subscribe(publication.id);
                 console.log(me.subscribe(publication.id));
                 let newMedia;
@@ -116,8 +116,8 @@ let audio_flag = true;
                 stream.attach(newMedia);
                 vid.appendChild(newMedia);
     
-            };
-        // }
+            // };
+        }
 
         
     };
