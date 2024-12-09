@@ -42,7 +42,6 @@ const token = new SkyWayAuthToken({
     },
 }).encode("WycaGzghuM+aTaX/MPXfe9gP5ayoc9S47PjyDBm+SB4=");
 
-let isMikeEnabled = false;
 let camera_flg = true;
 let audio_flag = true;
 
@@ -64,6 +63,7 @@ let audio_flag = true;
         await SkyWayStreamFactory.createMicrophoneAudioAndCameraStream();
     video.attach(localVideo);
     await localVideo.play();
+    
 
     if (roomNameInput.value === "") return;
 
@@ -75,13 +75,9 @@ let audio_flag = true;
     const me = await room.join();
 
     myId.value = me.id;
-
     
-    
-
     let audio_publ = await me.publish(audio);
     let camera_publ = await me.publish(video);
-
 
     const subscribeAndAttach = (publication) => {
         if (publication.publisher.id === me.id) return;
@@ -114,10 +110,12 @@ let audio_flag = true;
 
             let vid = document.createElement("div");
             vid.id = `vd-${publication.id}`;
+            vid.className = 'video_class';
             vd.appendChild(vid);
 
             stream.attach(newMedia);
             vid.appendChild(newMedia);
+            document.getElementById(`vd-${publication.id}`).click();
         };
     };
 
@@ -162,17 +160,7 @@ let audio_flag = true;
         }
     }
 
-
-
-
 })();
-
-
-
-
-
-
-
 
 function leave_room() {
     window.location.href = "room_in.html";

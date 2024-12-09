@@ -4,31 +4,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>ビデオ通話</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="back">
-    <input id="my-id" type="hidden">
-    <input id="room-name" type="hidden" value="a">
-    <button id="leave" class="back_btn">退出</button>
-  </div>
-  
-  <div id="vd" class="video">
-    <div id="my_video">
-      <video id="local-video" muted playsinline></video>
-      <button id="mute">ミュート</button>
-      <button id="camera">カメラ</button>
+
+  <div id="main">
+    <div id="vd" class="video">
+      <div id="my_video">
+        <video id="local-video" muted playsinline></video>
+      </div>
+      <div id="remote-media-area"></div>
     </div>
-    
-    <div id="remote-media-area"></div>
+
+    <div class="back">
+      <input id="my-id" type="hidden">
+      <input id="room-name" type="hidden" value="a">
+      <ul>
+        <li><button id="mute"><img src="images/mute.png"></button></li>
+        <li><button id="camera"><img src="images/not_camera.png"></button></li>
+        <li><button id="leave" class="back_btn"><img src="images/dis.png"></button></li>
+      </ul>
+    </div>
+
+    <div id="button-area"></div>
   </div>
-
-  
-
-  <div id="button-area"></div>
-  
 
   <script src="https://cdn.jsdelivr.net/npm/@skyway-sdk/room/dist/skyway_room-latest.js"></script>
   <script src="main.js"></script>
