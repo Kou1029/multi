@@ -86,35 +86,40 @@ let audio_flag = true;
         subscribeButton.id = `subscribe-button-${publication.id}-${publication.contentType}`;  
         subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
         buttonArea.appendChild(subscribeButton);
+        video_hyouji();
 
-        // subscribeButton.onclick = async () => {
-            const { stream } = me.subscribe(publication.id);
+        async function video_hyouji() {
+            // subscribeButton.onclick = async () => {
+                const { stream } = me.subscribe(publication.id);
 
-            let newMedia;
-            // switch (stream.track.kind) {
-            //     case "video":
-                    newMedia = document.createElement("video");
-                    newMedia.playsInline = true;
-                    newMedia.autoplay = true;
-                //     break;
-                // case "audio":
-                    newMedia = document.createElement("audio");
-                    newMedia.controls = true;
-                    newMedia.autoplay = true;
-            //         break;
-            //     default:
-            //         return;
-            // }
-            newMedia.id = `media-${publication.id}`;
+                let newMedia;
+                // switch (stream.track.kind) {
+                //     case "video":
+                        newMedia = document.createElement("video");
+                        newMedia.playsInline = true;
+                        newMedia.autoplay = true;
+                    //     break;
+                    // case "audio":
+                        newMedia = document.createElement("audio");
+                        newMedia.controls = true;
+                        newMedia.autoplay = true;
+                //         break;
+                //     default:
+                //         return;
+                // }
+                newMedia.id = `media-${publication.id}`;
+    
+                let vid = document.createElement("div");
+                vid.id = `vd-${publication.id}`;
+                vd.appendChild(vid);
+    
+                stream.attach(newMedia);
+                vid.appendChild(newMedia);
+    
+            // };
+        }
 
-            let vid = document.createElement("div");
-            vid.id = `vd-${publication.id}`;
-            vd.appendChild(vid);
-
-            stream.attach(newMedia);
-            vid.appendChild(newMedia);
-
-        // };
+        
     };
 
     room.publications.forEach(subscribeAndAttach);
