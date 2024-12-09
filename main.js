@@ -90,7 +90,7 @@ let audio_flag = true;
 
         // async function video_hyouji() {
             subscribeButton.onclick = async () => {
-                const { stream } = me.subscribe(publication.id);
+                const { stream } = await me.subscribe(publication.id);
                 console.log(me.subscribe(publication.id));
                 let newMedia;
                 switch (stream.track.kind) {
