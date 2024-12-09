@@ -88,7 +88,7 @@ let audio_flag = true;
         buttonArea.appendChild(subscribeButton);
 
         // subscribeButton.onclick = async () => {
-        //     const { stream } = await me.subscribe(publication.id);
+            const { stream } = me.subscribe(publication.id);
 
             let newMedia;
             // switch (stream.track.kind) {
