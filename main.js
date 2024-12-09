@@ -86,12 +86,8 @@ let audio_flag = true;
         subscribeButton.id = `subscribe-button-${publication.id}-${publication.contentType}`;  
         subscribeButton.textContent = `${publication.publisher.id}: ${publication.contentType}`;
         buttonArea.appendChild(subscribeButton);
-        let id_dg = document.getElementById(`subscribe-button-${publication.id}-${publication.contentType}`);
-        console.log(id_dg);
-        subscribeButton.click();
 
-        subscribeButton.onclick = async () => {
-            const { stream } = await me.subscribe(publication.id);
+            const { stream } = me.subscribe(publication.id);
 
             let newMedia;
             switch (stream.track.kind) {
@@ -117,7 +113,7 @@ let audio_flag = true;
             stream.attach(newMedia);
             vid.appendChild(newMedia);
 
-        };
+        
     };
 
     room.publications.forEach(subscribeAndAttach);
