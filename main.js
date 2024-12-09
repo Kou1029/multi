@@ -88,7 +88,7 @@ let audio_flag = true;
         buttonArea.appendChild(subscribeButton);
         let id_dg = document.getElementById(`subscribe-button-${publication.id}-${publication.contentType}`);
         console.log(id_dg);
-        document.getElementById(`subscribe-button-${publication.id}-${publication.contentType}`).click();
+        subscribeButton.click();
 
         subscribeButton.onclick = async () => {
             const { stream } = await me.subscribe(publication.id);
