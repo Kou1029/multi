@@ -194,6 +194,7 @@ function video_size(w_height,w_width,b_height,b_width){
         $('.buttons').css("height",button_height + "px");
         $('button').css("height","60px");
         $('button').css("width","60px");
+        $('.main').css("height",video_height + "px");
     }else{
         if(video_num.length == 1){
             video_width = b_width;
