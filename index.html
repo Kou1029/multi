@@ -6,26 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ビデオ通話</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
   <div id="main">
-    <div id="vd" class="video">
-      <div id="my_video">
-        <video id="local-video" muted playsinline></video>
+
+    <div id="vd">
+      <div id="my_video" class="video">
+        <ul id="remote-media-area">
+          <li><video id="local-video" muted playsinline></video></li>
+        </ul>
+        <div></div>
       </div>
-      <div id="remote-media-area"></div>
     </div>
 
     <div class="back">
       <input id="my-id" type="hidden">
       <input id="room-name" type="hidden" value="a">
-      <ul>
-        <li><button id="mute"><img src="images/mute.png"></button></li>
-        <li><button id="camera"><img src="images/not_camera.png"></button></li>
-        <li><button id="leave" class="back_btn"><img src="images/dis.png"></button></li>
-      </ul>
+      <div class="buttons">
+        <button id="mute"><img src="images/mute.png"></button>
+        <button id="camera"><img src="images/not_camera.png"></button>
+        <button id="leave" class="back_btn"><img src="images/dis.png"></button>
+      </div>
     </div>
 
     <div id="button-area"></div>

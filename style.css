@@ -1,12 +1,19 @@
 body{
     margin: 0;
     background-color: #ffffff;
+    overflow: hidden;
 }
 
 video{
-    width: 36vw;
-    height: 27vw;
+    width: 45vw;
+    height: 33.75vw;
     background-color: #000;
+}
+
+audio{
+    position: fixed;
+    top: 0;
+    left: 200%;
 }
 
 #my_video{
@@ -28,7 +35,7 @@ video{
 
 .back{
     width: 100vw;
-    height: 4vw;
+    height: 12%;
     padding: 1% 0;
     background-color: rgba(0, 0, 0, 0.2);
 }
@@ -49,10 +56,19 @@ ul li{
     margin: 0 1vw;
 }
 
+button{
+    height: 50%;
+    width: auto;
+    margin: 0 1%;
+}
+
+.buttons{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 .back_btn{
-    height: 3vw;
-    width: 3vw;
     font-size: 1.2rem;
     background-color: #ff4242;
     border-radius: 100%;
@@ -60,8 +76,6 @@ ul li{
     transition: 0.5s;
 }
 .back_btn:hover{
-    height: 3vw;
-    width: 3vw;
     font-size: 1.2rem;
     background-color: #be1c1c;
     border-radius: 100%;
@@ -70,8 +84,6 @@ ul li{
 }
 
 #mute{
-    height: 3vw;
-    width: 3vw;
     font-size: 1.2rem;
     background-color: #a7a7a793;
     border-radius: 100%;
@@ -79,8 +91,6 @@ ul li{
     transition: 0.5s;
 }
 #mute:hover{
-    height: 3vw;
-    width: 3vw;
     font-size: 1.2rem;
     background-color: #52525293;
     border-radius: 100%;
@@ -89,8 +99,6 @@ ul li{
 }
 
 #camera{
-    height: 3vw;
-    width: 3vw;
     font-size: 1.2rem;
     background-color: #a7a7a793;
     border-radius: 100%;
@@ -98,8 +106,6 @@ ul li{
     transition: 0.5s;
 }
 #camera:hover{
-    height: 3vw;
-    width: 3vw;
     font-size: 1.2rem;
     background-color: #52525293;
     border-radius: 100%;
@@ -109,9 +115,16 @@ ul li{
 
 /* ボタン系css */
 
-
 .video{
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    transform: translateY(-50%) translateX(-40%);
+}
+
+#vd{
     display: flex;
     justify-content: left;
     background-color: #444444;
+    height: 88%;
 }

@@ -109,12 +109,13 @@ let audio_flag = true;
                 }
                 newMedia.id = `media-${publication.id}`;
     
-                let vid = document.createElement("div");
+                let vid = document.createElement("li");
                 vid.id = `vd-${publication.id}`;
                 vd.appendChild(vid);
     
                 stream.attach(newMedia);
                 vid.appendChild(newMedia);
+                remoteMediaArea.appendChild(vid);
     
             // };
         }
@@ -168,3 +169,10 @@ let audio_flag = true;
 function leave_room() {
     window.location.href = "room_in.html";
 }
+
+document.addEventListener('DOMContentLoaded',() => {
+    w_height = $(window).height();
+    w_width = $(window).width();
+    console.log(w_height);
+    
+});
