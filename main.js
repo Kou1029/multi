@@ -141,6 +141,7 @@ let audio_flag = true;
         document.getElementById(`subscribe-button-${e.publication.id}`)?.remove();
         document.getElementById(`media-${e.publication.id}`)?.remove();
         document.getElementById(`vd-${e.publication.id}`)?.remove();
+        window_resize();
     });
 
 
@@ -181,17 +182,25 @@ function video_size(w_height,w_width,b_height,b_width){
     const video_num = document.getElementsByTagName('video');
 
     if ($(window).width() <= 768) {
-        video_width = w_width;
-        video_height = b_height / 2;
+        if(video_num.length == 1){
+            video_width = b_width;
+            video_height = b_height;
+        }else if(video_num.length == 2){
+            video_width = w_width;
+            video_height = b_height / 2;
+        } 
+        
+        let button_height = w_height - b_height;
+        $('.buttons').css("height",button_height + "px");
+    }else{
+        if(video_num.length == 1){
+            video_width = b_width;
+            video_height = b_height;
+        }else if(video_num.length == 2){
+            video_width = w_width / 2;
+            video_height = b_height;
+        } 
     }
-
-    if(video_num.length == 1){
-        video_width = b_width;
-        video_height = b_height;
-    }else if(video_num.length == 2){
-        video_width = w_width / 2;
-        video_height = b_height;
-    }   
 
     $('video').css("height",video_height + "px");
     $('video').css("width",video_width + "px");
