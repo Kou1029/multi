@@ -184,15 +184,14 @@ function video_size(w_height,w_width,b_height,b_width){
     if ($(window).width() <= 768) {
         if(video_num.length == 1){
             video_width = b_width;
-            video_height = b_height;
+            video_height = b_height - 100;
         }else if(video_num.length == 2){
             video_width = w_width;
-            video_height = b_height / 2;
+            video_height = (b_height - 100) / 2;
         } 
         $('#remote-media-area').css("display","block");
         let button_height = w_height - b_height;
         $('.buttons').css("height",button_height + "px");
-        $('button').css("height","20px");
     }else{
         if(video_num.length == 1){
             video_width = b_width;
