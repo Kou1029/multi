@@ -4,6 +4,10 @@ body{
     overflow: hidden;
 }
 
+#disc{
+    rotate: 122deg;
+}
+
 video{
     background-color: #000;
 }
@@ -36,10 +40,6 @@ ul{
     margin: 0;
 }
 
-/* li{
-    width: 45vw;
-    height: 33.75vw;
-} */
 
 /* ボタン系css */
 
@@ -81,7 +81,7 @@ button{
     font-size: 1.2rem;
     background-color: #a7a7a793;
     border-radius: 100%;
-    border: 1px solid #92919193;
+    border: 1px solid #5a5a5a93;
     transition: 0.5s;
 }
 #mute:hover{
@@ -96,7 +96,7 @@ button{
     font-size: 1.2rem;
     background-color: #a7a7a793;
     border-radius: 100%;
-    border: 1px solid #92919193;
+    border: 1px solid #5a5a5a93;
     transition: 0.5s;
 }
 #camera:hover{

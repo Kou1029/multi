@@ -111,11 +111,11 @@ let audio_flag = true;
     
                 let vid = document.createElement("li");
                 vid.id = `vd-${publication.id}`;
-                vd.appendChild(vid);
     
                 stream.attach(newMedia);
-                vid.appendChild(newMedia);
                 remoteMediaArea.appendChild(vid);
+                vid.appendChild(newMedia);
+                
     
             // };
         }
