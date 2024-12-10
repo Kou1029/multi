@@ -178,11 +178,20 @@ function leave_room() {
 function video_size(w_height,w_width,b_height){
     let video_width = w_width / 2;
     let video_height = b_height;
+    const video_num = document.getElementsByTagName('video');
 
     if ($(window).width() <= 768) {
         video_width = w_width;
         video_height = b_height / 2;
     }
+
+    if(video_num.length == 1){
+        video_width = w_width;
+        video_height = w_height;
+    }else if(video_num.length == 2){
+        video_width = w_width / 2;
+        video_height = b_height;
+    }   
 
     $('video').css("height",video_height + "px");
     $('video').css("width",video_width + "px");
