@@ -175,7 +175,7 @@ function leave_room() {
     window.location.href = "room_in.html";
 }
 
-function video_size(w_height,w_width,b_height){
+function video_size(w_height,w_width,b_height,b_width){
     let video_width = w_width / 2;
     let video_height = b_height;
     const video_num = document.getElementsByTagName('video');
@@ -186,8 +186,8 @@ function video_size(w_height,w_width,b_height){
     }
 
     if(video_num.length == 1){
-        video_width = w_width;
-        video_height = w_height;
+        video_width = b_width;
+        video_height = b_height;
     }else if(video_num.length == 2){
         video_width = w_width / 2;
         video_height = b_height;
@@ -204,6 +204,7 @@ function window_resize(){
     w_height = $(window).height();
     w_width = $(window).width();
     b_height = $('#my_video').height();
+    b_width = $('#my_video').width();
 
     let button_height = w_height - b_height;
 
@@ -211,7 +212,7 @@ function window_resize(){
     $('.main').css("width",w_width + "px");
     $('.buttons').css("height",button_height + "px");
 
-    video_size(w_height,w_width,b_height);
+    video_size(w_height,w_width,b_height,b_width);
 }
 
 document.addEventListener('DOMContentLoaded',() => {
