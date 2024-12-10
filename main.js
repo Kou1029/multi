@@ -131,8 +131,8 @@ let audio_flag = true;
         await room.dispose();
 
         myId.textContent = "";
-        buttonArea.replaceChildren();
-        vd.replaceChildren();
+        // buttonArea.replaceChildren();
+        remoteMediaArea.replaceChildren();
 
         leave_room();
     };
