@@ -166,13 +166,47 @@ let audio_flag = true;
 
 })();
 
+function sanka(){
+    let num = document.getElementsByTagName('video');
+    document.getElementById('sanka').textContent(num + "人");
+}
+
 function leave_room() {
     window.location.href = "room_in.html";
 }
 
-document.addEventListener('DOMContentLoaded',() => {
+function video_size(w_height,w_width,b_height){
+    let video_width = w_width / 2;
+    let video_height = b_height;
+
+    if ($(window).width() <= 768) {
+        video_width = w_width;
+        video_height = b_height / 2;
+    }
+
+    $('video').css("height",video_height + "px");
+    $('video').css("width",video_width + "px");
+
+    $('info').css("height",video_height + "px");
+    $('info').css("width",video_width + "px");
+}
+
+function window_resize(){
     w_height = $(window).height();
     w_width = $(window).width();
-    console.log(w_height);
-    
+    b_height = $('#my_video').height();
+
+    let button_height = w_height - b_height;
+
+    $('.main').css("height",w_height + "px");
+    $('.main').css("width",w_width + "px");
+    $('.buttons').css("height",button_height + "px");
+
+    video_size(w_height,w_width,b_height);
+}
+
+document.addEventListener('DOMContentLoaded',() => {
+    window_resize(); 
 });
+
+

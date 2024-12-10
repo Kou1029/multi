@@ -10,30 +10,24 @@
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onresize="window_resize()">
 
   <div id="main">
 
-    <div id="vd">
-      <div id="my_video" class="video">
-        <ul id="remote-media-area">
-          <li><video id="local-video" muted playsinline></video></li>
-        </ul>
-        <div></div>
-      </div>
+    <div id="my_video" class="video">
+      <ul id="remote-media-area">
+        <li><video id="local-video" muted playsinline></video></li>
+      </ul>
     </div>
 
-    <div class="back">
+    <div class="buttons">
       <input id="my-id" type="hidden">
       <input id="room-name" type="hidden" value="a">
-      <div class="buttons">
-        <button id="mute"><img src="images/mute.png"></button>
-        <button id="camera"><img src="images/not_camera.png"></button>
-        <button id="leave" class="back_btn"><img src="images/dis.png"></button>
-      </div>
+      <button id="mute"><img src="images/mute.png"></button>
+      <button id="camera"><img src="images/not_camera.png"></button>
+      <button id="leave" class="back_btn"><img src="images/dis.png"></button>
     </div>
 
-    <div id="button-area"></div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@skyway-sdk/room/dist/skyway_room-latest.js"></script>
