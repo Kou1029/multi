@@ -189,7 +189,7 @@ function video_size(w_height,w_width,b_height,b_width){
             video_width = w_width;
             video_height = b_height / 2;
         } 
-        
+        $('#remote-media-area').css("display","block");
         let button_height = w_height - b_height;
         $('.buttons').css("height",button_height + "px");
     }else{
