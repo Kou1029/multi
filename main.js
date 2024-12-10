@@ -116,7 +116,7 @@ let audio_flag = true;
                 remoteMediaArea.appendChild(vid);
                 vid.appendChild(newMedia);
                 
-    
+                window_resize();
             // };
         }
 
