@@ -90,37 +90,37 @@ let audio_flag = true;
 
         async function video_hyouji() {
             // subscribeButton.onclick = async () => {
-                const { stream } = await me.subscribe(publication.id);
-                console.log(me.subscribe(publication.id));
-                let newMedia;
-                switch (stream.track.kind) {
-                    case "video":
-                        newMedia = document.createElement("video");
-                        newMedia.playsInline = true;
-                        newMedia.autoplay = true;
-                        break;
-                    case "audio":
-                        newMedia = document.createElement("audio");
-                        newMedia.controls = true;
-                        newMedia.autoplay = true;
-                        break;
-                    default:
-                        return;
-                }
-                newMedia.id = `media-${publication.id}`;
-    
-                let vid = document.createElement("li");
-                vid.id = `vd-${publication.id}`;
-    
-                stream.attach(newMedia);
-                remoteMediaArea.appendChild(vid);
-                vid.appendChild(newMedia);
-                
-                window_resize();
+            const { stream } = await me.subscribe(publication.id);
+            console.log(me.subscribe(publication.id));
+            let newMedia;
+            switch (stream.track.kind) {
+                case "video":
+                    newMedia = document.createElement("video");
+                    newMedia.playsInline = true;
+                    newMedia.autoplay = true;
+                    break;
+                case "audio":
+                    newMedia = document.createElement("audio");
+                    newMedia.controls = true;
+                    newMedia.autoplay = true;
+                    break;
+                default:
+                    return;
+            }
+            newMedia.id = `media-${publication.id}`;
+
+            let vid = document.createElement("li");
+            vid.id = `vd-${publication.id}`;
+
+            stream.attach(newMedia);
+            remoteMediaArea.appendChild(vid);
+            vid.appendChild(newMedia);
+
+            window_resize();
             // };
         }
 
-        
+
     };
 
     room.publications.forEach(subscribeAndAttach);
@@ -149,11 +149,11 @@ let audio_flag = true;
         if (camera_flg == true) {
             await camera_publ.disable();
             camera_flg = false;
-            $('#cm').attr('src','images/camera.png');
+            $('#cm').attr('src', 'images/camera.png');
         } else {
             await camera_publ.enable();
             camera_flg = true;
-            $('#cm').attr('src','images/not_camera.png');
+            $('#cm').attr('src', 'images/not_camera.png');
         }
     }
 
@@ -161,17 +161,17 @@ let audio_flag = true;
         if (audio_flag == true) {
             await audio_publ.disable();
             audio_flag = false;
-            $('#cm').attr('src','images/mic.png');
+            $('#mic').attr('src', 'images/mic.png');
         } else {
             await audio_publ.enable();
             audio_flag = true;
-            $('#cm').attr('src','images/mute.png');
+            $('#mic').attr('src', 'images/mute.png');
         }
     }
 
 })();
 
-function sanka(){
+function sanka() {
     let num = document.getElementsByTagName('video');
     document.getElementById('sanka').textContent(num + "人");
 }
@@ -180,43 +180,48 @@ function leave_room() {
     window.location.href = "room_in.html";
 }
 
-function video_size(w_height,w_width,b_height,b_width){
+function video_size(w_height, w_width, b_height, b_width) {
     let video_width = w_width / 2;
     let video_height = b_height;
     const video_num = document.getElementsByTagName('video');
 
     if ($(window).width() <= 768) {
-        if(video_num.length == 1){
+        if (video_num.length == 1) {
             video_width = b_width;
             video_height = b_height;
-        }else if(video_num.length == 2){
+        } else if (video_num.length == 2) {
             video_width = w_width;
             video_height = (b_height) / 2;
-        } 
-        $('#remote-media-area').css("display","block");
+        }
+        $('#remote-media-area').css("display", "block");
         let button_height = w_height - b_height;
-        $('.buttons').css("height",button_height + "px");
-        $('button').css("height","60px");
-        $('button').css("width","60px");
-        $('.main').css("height",video_height + "px");
-    }else{
-        if(video_num.length == 1){
+        $('.buttons').css("height", button_height + "px");
+        $('button').css("height", "60px");
+        $('button').css("width", "60px");
+        $('.main').css("height", video_height + "px");
+    } else {
+        if (video_num.length == 1) {
             video_width = b_width;
             video_height = b_height;
-        }else if(video_num.length == 2){
+        } else if (video_num.length == 2) {
             video_width = w_width / 2;
             video_height = b_height;
-        } 
+        } else if (video_num.length == 3 || video_num.length == 4) {
+            video_height = w_height / 2;
+            video_width = w_width / 2;
+        }
     }
 
-    $('video').css("height",video_height + "px");
-    $('video').css("width",video_width + "px");
+    $('video').css("height", video_height + "px");
+    $('video').css("width", video_width + "px");
 
-    $('info').css("height",video_height + "px");
-    $('info').css("width",video_width + "px");
+    $('info').css("height", video_height + "px");
+    $('info').css("width", video_width + "px");
+
+    $('li').css("height",video_height + "px");
 }
 
-function window_resize(){
+function window_resize() {
     w_height = $(window).height();
     w_width = $(window).width();
     b_height = $('#my_video').height();
@@ -224,15 +229,16 @@ function window_resize(){
 
     let button_height = w_height - b_height;
 
-    $('.main').css("height",w_height + "px");
-    $('.main').css("width",w_width + "px");
-    $('.buttons').css("height",button_height + "px");
+    $('.main').css("height", w_height + "px");
+    $('.main').css("width", w_width + "px");
+    $('.buttons').css("height", button_height + "px");
+    $('#remote-media-area').css("height", b_height + "px");
 
-    video_size(w_height,w_width,b_height,b_width);
+    video_size(w_height, w_width, b_height, b_width);
 }
 
-document.addEventListener('DOMContentLoaded',() => {
-    window_resize(); 
+document.addEventListener('DOMContentLoaded', () => {
+    window_resize();
 });
 
 
