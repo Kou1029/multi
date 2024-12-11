@@ -196,8 +196,10 @@ function video_size(w_height, w_width, b_height, b_width) {
         $('#remote-media-area').css("display", "block");
         let button_height = w_height - b_height;
         $('.buttons').css("height", button_height + "px");
-        $('button').css("height", "60px");
-        $('button').css("width", "60px");
+        $('button').css("height", "50px");
+        $('button').css("width", "50px");
+        $('img').css("height", "30px");
+        $('img').css("width", "30px");
         $('.main').css("height", video_height + "px");
     } else {
         $('#remote-media-area').css("display", "flex");
