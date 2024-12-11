@@ -34,6 +34,7 @@ ul{
     justify-content: center;
     list-style-type: none;
     flex-wrap: wrap;
+    flex-direction: row;
     position: absolute;
     top: 0;
     left: 0;

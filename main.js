@@ -200,6 +200,7 @@ function video_size(w_height, w_width, b_height, b_width) {
         $('button').css("width", "60px");
         $('.main').css("height", video_height + "px");
     } else {
+        $('#remote-media-area').css("display", "flex");
         if (video_num.length == 1) {
             video_width = b_width;
             video_height = b_height;
@@ -217,8 +218,6 @@ function video_size(w_height, w_width, b_height, b_width) {
 
     $('info').css("height", video_height + "px");
     $('info').css("width", video_width + "px");
-
-    $('li').css("height",video_height + "px");
 }
 
 function window_resize() {
