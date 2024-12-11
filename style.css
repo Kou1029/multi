@@ -64,6 +64,7 @@ button{
     position: fixed;
     bottom: 0;
     right: 0;
+    -webkit-appearance: none;
 }
 
 .back_btn{
