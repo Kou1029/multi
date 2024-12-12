@@ -149,11 +149,11 @@ let audio_flag = true;
         if (camera_flg == true) {
             await camera_publ.disable();
             camera_flg = false;
-            $('#cm').attr('src', 'images/camera.png');
+            $('#cm').attr('src', 'images/not_camera.png');
         } else {
             await camera_publ.enable();
             camera_flg = true;
-            $('#cm').attr('src', 'images/not_camera.png');
+            $('#cm').attr('src', 'images/camera.png');
         }
     }
 
@@ -161,11 +161,11 @@ let audio_flag = true;
         if (audio_flag == true) {
             await audio_publ.disable();
             audio_flag = false;
-            $('#mic').attr('src', 'images/mic.png');
+            $('#mic').attr('src', 'images/mute.png');
         } else {
             await audio_publ.enable();
             audio_flag = true;
-            $('#mic').attr('src', 'images/mute.png');
+            $('#mic').attr('src', 'images/mic.png');
         }
     }
 
