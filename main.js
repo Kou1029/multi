@@ -110,6 +110,7 @@ let audio_flag = true;
 
             let vid = document.createElement("li");
             vid.id = `vd-${publication.id}`;
+            vid.className = 'li_video';
 
             stream.attach(newMedia);
             remoteMediaArea.appendChild(vid);
