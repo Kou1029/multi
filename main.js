@@ -201,7 +201,7 @@ function video_size(w_height, w_width, b_height, b_width) {
         let button_height = w_height - b_height;
         $('.buttons').css("height", button_height + "px");
         $('button').css("height", "50px");
-        $('button').css("width", "90px");
+        $('button').css("width", "80px");
         $('img').css("height", "30px");
         $('img').css("width", "30px");
         $('.main').css("height", video_height + "px");
