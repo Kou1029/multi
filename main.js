@@ -254,11 +254,13 @@ function video_size(w_height, w_width, b_height, b_width) {
                 break;
         }
 
-        for (let i = 0; i < $('li').children().length; i++) {
-            if ($('li').children()[i] == "video") {
-                $('li')[i].css("height", video_height + "px");
-            }
-        }
+        $('li').css("height",video_height + "px");
+
+        // for (let i = 0; i < $('li').children().length; i++) {
+        //     if ($('li').children()[i] == "video") {
+        //         $('li')[i].css("height", video_height + "px");
+        //     }
+        // }
     }
 
     $('video').css("height", video_height + "px");
