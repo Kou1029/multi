@@ -191,7 +191,7 @@ function video_size(w_height, w_width, b_height, b_width) {
         } else if (video_num.length == 2) {
             video_width = w_width;
             video_height = b_height / 2;
-        }else if(video_num.length == 3 || video_num.length == 4) {
+        } else if (video_num.length == 3 || video_num.length == 4) {
             video_height = b_height / 2;
             video_width = w_width / 2;
         }
@@ -204,17 +204,54 @@ function video_size(w_height, w_width, b_height, b_width) {
         $('img').css("height", "30px");
         $('img').css("width", "30px");
         $('.main').css("height", video_height + "px");
+
+        for (let i = 0; i < $('li').children().length; i++) {
+            if ($('li').children()[i] == "video") {
+                $('li')[i].css("height", video_height + "px");
+            }
+        }
     } else {
+
         $('#remote-media-area').css("display", "flex");
-        if (video_num.length == 1) {
-            video_width = b_width;
-            video_height = b_height;
-        } else if (video_num.length == 2) {
-            video_width = b_width / 2;
-            video_height = b_height;
-        } else if (video_num.length == 3 || video_num.length == 4) {
-            video_height = b_height / 2;
-            video_width = w_width / 2;
+
+        let num = video_num.length
+
+        switch (num) {
+            case 1:
+                video_width = b_width;
+                video_height = b_height;
+                break;
+
+            case 2:
+                video_width = b_width / 2;
+                video_height = b_height;
+                break;
+
+            case 3:
+                video_height = b_height / 2;
+                video_width = w_width / 2;
+                break;
+
+            case 4:
+                video_height = b_height / 2;
+                video_width = w_width / 2;
+                break;
+
+            case 5:
+                video_height = b_height / 2;
+                video_width = w_width / 3;
+                break;
+
+            case 6:
+                video_height = b_height / 2;
+                video_width = w_width / 3;
+                break;
+
+
+            default:
+                video_width = b_width;
+                video_height = b_height;
+                break;
         }
     }
 
@@ -224,11 +261,7 @@ function video_size(w_height, w_width, b_height, b_width) {
     $('info').css("height", video_height + "px");
     $('info').css("width", video_width + "px");
 
-    for(let i = 0;i < $('li').children().length;i++){
-        if($('li').children()[i] == "video"){
-            $('li')[i].css("height",video_height + "px");
-        }
-    }
+
 }
 
 function window_resize() {
