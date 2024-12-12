@@ -253,6 +253,12 @@ function video_size(w_height, w_width, b_height, b_width) {
                 video_height = b_height;
                 break;
         }
+
+        for (let i = 0; i < $('li').children().length; i++) {
+            if ($('li').children()[i] == "video") {
+                $('li')[i].css("height", video_height + "px");
+            }
+        }
     }
 
     $('video').css("height", video_height + "px");
