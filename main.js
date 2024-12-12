@@ -91,7 +91,6 @@ let audio_flag = true;
         async function video_hyouji() {
             // subscribeButton.onclick = async () => {
             const { stream } = await me.subscribe(publication.id);
-            console.log(me.subscribe(publication.id));
             let newMedia;
             switch (stream.track.kind) {
                 case "video":
@@ -225,11 +224,11 @@ function video_size(w_height, w_width, b_height, b_width) {
     $('info').css("height", video_height + "px");
     $('info').css("width", video_width + "px");
 
-    console.log($('li').children('img'));
-
-    $('li').children('img').css("background-color","#ff0000");
-
-    $('li').css("height",video_height + "px");
+    for(let i = 0;i < $('li').children().length;i++){
+        if($('li').children()[i] == "video"){
+            $('li')[i].css("height",video_height + "px");
+        }
+    }
 }
 
 function window_resize() {
