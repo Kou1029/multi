@@ -215,25 +215,25 @@ function video_size(w_height, w_width, b_height, b_width) {
 
         $('#remote-media-area').css("display", "flex");
 
-        if (video_num == 1) {
+        if (video_num.length == 1) {
             video_width = b_width;
             video_height = b_height;
-        } else if (video_num == 2) {
+        } else if (video_num.length == 2) {
             video_width = b_width / 2;
             video_height = b_height;
-        } else if (video_num <= 4) {
+        } else if (video_num.length <= 4) {
             video_height = b_height / 2;
             video_width = w_width / 2;
-        } else if (video_num <= 6) {
+        } else if (video_num.length <= 6) {
             video_height = b_height / 2;
             video_width = w_width / 3;
-        } else if (video_num <= 9) {
+        } else if (video_num.length <= 9) {
             video_height = b_height / 3;
             video_width = w_width / 3;
-        } else if (video_num <= 12) {
+        } else if (video_num.length <= 12) {
             video_height = b_height / 3;
             video_width = w_width / 4;
-        } else if (video_num <= 16) {
+        } else if (video_num.length <= 16) {
             video_height = b_height / 4;
             video_width = w_width / 4;
         }
