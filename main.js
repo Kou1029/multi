@@ -215,53 +215,31 @@ function video_size(w_height, w_width, b_height, b_width) {
 
         $('#remote-media-area').css("display", "flex");
 
-        let num = video_num.length
-
-        switch (num) {
-            case 1:
-                video_width = b_width;
-                video_height = b_height;
-                break;
-
-            case 2:
-                video_width = b_width / 2;
-                video_height = b_height;
-                break;
-
-            case 3:
-                video_height = b_height / 2;
-                video_width = w_width / 2;
-                break;
-
-            case 4:
-                video_height = b_height / 2;
-                video_width = w_width / 2;
-                break;
-
-            case 5:
-                video_height = b_height / 2;
-                video_width = w_width / 3;
-                break;
-
-            case 6:
-                video_height = b_height / 2;
-                video_width = w_width / 3;
-                break;
-
-
-            default:
-                video_width = b_width;
-                video_height = b_height;
-                break;
+        if (video_num == 1) {
+            video_width = b_width;
+            video_height = b_height;
+        } else if (video_num == 2) {
+            video_width = b_width / 2;
+            video_height = b_height;
+        } else if (video_num <= 4) {
+            video_height = b_height / 2;
+            video_width = w_width / 2;
+        } else if (video_num <= 6) {
+            video_height = b_height / 2;
+            video_width = w_width / 3;
+        } else if (video_num <= 9) {
+            video_height = b_height / 3;
+            video_width = w_width / 3;
+        } else if (video_num <= 12) {
+            video_height = b_height / 3;
+            video_width = w_width / 4;
+        } else if (video_num <= 16) {
+            video_height = b_height / 4;
+            video_width = w_width / 4;
         }
 
-        $('li').css("height",video_height + "px");
 
-        // for (let i = 0; i < $('li').children().length; i++) {
-        //     if ($('li').children()[i] == "video") {
-        //         $('li')[i].css("height", video_height + "px");
-        //     }
-        // }
+        $('li').css("height", video_height + "px");
     }
 
     $('video').css("height", video_height + "px");
