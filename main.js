@@ -191,9 +191,13 @@ function video_size(w_height, w_width, b_height, b_width) {
             video_height = b_height;
         } else if (video_num.length == 2) {
             video_width = w_width;
-            video_height = (b_height) / 2;
+            video_height = b_height / 2;
+        }else if(video_num.length == 3 || video_num.length == 4) {
+            video_height = b_height / 2;
+            video_width = w_width / 2;
         }
         $('#remote-media-area').css("display", "block");
+
         let button_height = w_height - b_height;
         $('.buttons').css("height", button_height + "px");
         $('button').css("height", "50px");
@@ -207,10 +211,10 @@ function video_size(w_height, w_width, b_height, b_width) {
             video_width = b_width;
             video_height = b_height;
         } else if (video_num.length == 2) {
-            video_width = w_width / 2;
+            video_width = b_width / 2;
             video_height = b_height;
         } else if (video_num.length == 3 || video_num.length == 4) {
-            video_height = w_height / 2;
+            video_height = b_height / 2;
             video_width = w_width / 2;
         }
     }
@@ -220,6 +224,8 @@ function video_size(w_height, w_width, b_height, b_width) {
 
     $('info').css("height", video_height + "px");
     $('info').css("width", video_width + "px");
+
+    $('li').css("height",video_height + "px");
 }
 
 function window_resize() {
